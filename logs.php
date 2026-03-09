@@ -49,6 +49,7 @@
 		<div class="main">
 			<div class="content">			
 				<div class="name">Журнал событий</div>
+				<button onclick="exportLogs()">Создать .txt файл логов</button>
 
 				<table border="1">
 					<tr>
@@ -103,6 +104,22 @@
 						</tr>
 					`);
 				});
+			}
+
+			function exportLogs() {
+				$.ajax({
+                	url: 'ajax/export_logs.php',
+                	type: 'POST',
+                	data: null,
+                	cache: false,
+                	dataType: 'json',
+                	success: function(response) {
+                	    console.log('Файл logs.txt успешно создан!');
+                	},
+                	error: function() {
+                	    console.log('Системная ошибка!');
+                	}
+            	});
 			}
 		</script>
 	</body>
