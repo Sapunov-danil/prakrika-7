@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include("./settings/connect_datebase.php");
+	include("./settings/session.php");
 	
 	if (isset($_SESSION['user'])) {
 		if($_SESSION['user'] == -1) {
@@ -13,6 +14,8 @@
 			if($user_to_read[0] == 1) header("Location: login.php");
 		}
  	} else header("Location: login.php");
+
+	include("./settings/session.php");
 	
 ?>
 <!DOCTYPE HTML>
